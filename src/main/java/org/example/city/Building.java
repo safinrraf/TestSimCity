@@ -4,13 +4,29 @@ import java.math.BigDecimal;
 
 public abstract class Building {
 
-    abstract BuildingType getType();
+    protected final BuildingType buildingType;
+    protected final String emoji;
+    protected BigDecimal price;
 
-    abstract BigDecimal getPrice();
+    protected Building(BuildingType buildingType, String emoji, BigDecimal price) {
+        this.buildingType = buildingType;
+        this.emoji = emoji;
+        this.price = price;
+    }
 
-    abstract void setPrice(BigDecimal price);
+    protected BuildingType getType() {
+        return this.buildingType;
+    }
 
-    abstract CityCell getCityCell();
+    protected BigDecimal getPrice(){
+        return this.price;
+    }
 
-    abstract String getEmoji();
+    protected void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public String getEmoji() {
+        return this.emoji;
+    }
 }

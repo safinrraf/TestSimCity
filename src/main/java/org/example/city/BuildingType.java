@@ -5,5 +5,6 @@ public enum BuildingType {
     SPITAL,
     POLIZEISTATION,
     FEUERWEHRSTATION,
-    PARKANLAGEN
+    PARKANLAGEN,
+    EMPTY
 }
