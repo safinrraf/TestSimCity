@@ -1,9 +1,7 @@
 package org.example.gameboard;
 
+import org.example.city.Building;
 import org.example.city.CityCell;
-import org.example.city.EmptyPlace;
-
-import java.math.BigDecimal;
 
 public class GameBoard {
     private final int rowCount;
@@ -14,28 +12,21 @@ public class GameBoard {
         this.rowCount = rowCount;
         this.colCount = colCount;
         this.gameBoard = new CityCell[this.rowCount][this.colCount];
-
-        initGameBoard();
     }
 
-    private void initGameBoard() {
-        for(int i = 0; i < this.rowCount; i++) {
-            for(int j = 0; j < this.colCount; j++) {
-                gameBoard[i][j] = new CityCell(0, 0, BigDecimal.valueOf(123.43), new EmptyPlace());
-            }
-        }
+    public int getRowCount() {
+        return rowCount;
     }
 
-    public void printGameBoard() {
-        for(int i = 0; i < this.rowCount; i++) {
-            for(int j = 0; j < this.colCount; j++) {
-                if(gameBoard[i][j].getBuilding() == null) {
-                    System.out.print("[ * ]");
-                } else {
-                    System.out.printf("[ %s ]", gameBoard[i][j].getBuilding().getEmoji());
-                }
-            }
-            System.out.println(" ");
-        }
+    public int getColCount() {
+        return colCount;
+    }
+
+    public CityCell getCell(int row, int count) {
+        return this.gameBoard[row][count];
+    }
+
+    public void setCell(int row, int col, CityCell cityCell) {
+        this.gameBoard[row][col] = cityCell;
     }
 }
